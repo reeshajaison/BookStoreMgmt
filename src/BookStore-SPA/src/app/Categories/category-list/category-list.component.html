@@ -1,0 +1,54 @@
+<div class="jumbtron">
+    <h1 class="display-4 text-center">Categories</h1>
+    </div>
+    
+    <div class="col-md-12">
+    <button type="button" class="btn btn-success" (click)="addCategory()">New Category</button>
+    
+    <hr/>
+    
+    <div class="form-group">
+        <label for="Search">Search</label>
+    
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+             <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="searchCategories()" />
+             <button type="button" class="btn btn-default" (click)="resetSearch()">Clear Search</button>
+        </div>  
+    </div>
+    
+    <table class="table table-bordered table-hover table-condensed">
+    <thead>
+    <tr>
+        <th>Sr.No</th>
+        <th class="col-md-5">Category</th>
+        <th>Options</th>
+    </tr>
+    
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categories index as i " >
+            <td >
+                {{i+1}}
+                        </td>   
+            <td class="col-md-5">
+    {{category.name | uppercase}}
+            </td>   
+            <td class="action-button-column">
+
+    
+    <a title="Edit" (click)="editCategory(category.id)"><i class="fa fa-edit"></i></a>
+    <a title="Delete" (click)="deleteCategory(category.id)" style="margin-left: 12px;"><i class="fa fa-trash-alt"></i></a>
+    
+            </td>
+        </tr>
+    </tbody>
+    
+    </table>    
+    </div>
+    
+    
